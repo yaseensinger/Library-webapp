@@ -1,9 +1,8 @@
-// LoginController.java
 @Controller
 public class LoginController {
 
     @GetMapping("/login")
     public String login() {
-        return "login";
+        return "login"; // Thymeleaf will look for a template named "login.html"
     }
 }

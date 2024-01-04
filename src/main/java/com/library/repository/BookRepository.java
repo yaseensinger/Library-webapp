@@ -1,8 +1,8 @@
 package com.library.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import com.library.model.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
-    // Custom queries can be added here
+    // You can add custom query methods if needed
 }

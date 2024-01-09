@@ -1,0 +1,93 @@
+/* custom.css */
+
+body {
+    background-color: #001F3F; /* Dark Navy Background Color */
+    color: #000000; /* White Text Color */
+}
+
+.container.body {
+    margin-top: 70px; /* Adjust as needed */
+}
+
+.main_container {
+    background-color: #ffffff; /* White Container Background Color */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.right_col {
+    background-color: transparent; /* Transparent Background Color */
+    padding: 0;
+}
+
+.x_panel {
+    background-color: #ffffff; /* White Panel Background Color */
+    margin-top: 15px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #001F3F; /* Dark Navy Text Color */
+}
+
+/* Center the table and form */
+.col-md-12 {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Top Navigation Styles */
+header {
+    background-color: #001F3F; /* Dark Navy Background Color */
+    color: #ffffff; /* White Text Color */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 100px; /* Adjust as needed */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff; /* White Text Color */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.sign-out button {
+    background-color: #ffffff; /* White Background Color */
+    color: #001F3F; /* Dark Navy Text Color */
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sign-out button a {
+    text-decoration: none;
+    color: #001F3F; /* Dark Navy Text Color */
+}
+
+.sign-out button:hover {
+    background-color: #dddddd; /* Light Gray Hover Color */
+}

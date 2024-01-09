@@ -1,70 +1,129 @@
 package com.library.model;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import java.io.Serializable;
+import java.util.Date;
 
-import java.util.stream.Collectors;
-
-import javax.persistence.*;
-import java.util.Collection;
-import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
-public class User implements UserDetails {
+@Table(name = "user")
+public class User implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private String username;
-    private String password;
+	public User() {}
+	
+	public User(@NotNull String displayName, @NotNull String username, @NotNull String password, @NotNull String role) {
+		super();
+		this.displayName = displayName;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Role> roles;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private Long id;
+	
+	@NotNull
+	@Column(name = "display_name")
+	private String displayName;
+	
+	@NotNull
+	@Column(name = "username")
+	private String username;
+	
+	@NotNull
+	@Column(name = "password")
+	private String password;
+	
+	@NotNull
+	@Column(name = "active")
+	private Integer active;
+	
+	@NotNull
+	@Column(name = "role")
+	private String role;
+	
+	@NotNull
+	@Column(name = "created_date")
+	private Date createdDate;
+	
+	@Column(name = "last_modified_date")
+	private Date lastModifiedDate;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles.stream()
-                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName()))
-                .collect(Collectors.toList());
-    }
+	public Long getId() {
+		return id;
+	}
 
-    @Override
-    public String getPassword() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPassword'");
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    @Override
-    public String getUsername() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
-    }
+	public String getDisplayName() {
+		return displayName;
+	}
 
-    @Override
-    public boolean isAccountNonExpired() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isAccountNonExpired'");
-    }
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
 
-    @Override
-    public boolean isAccountNonLocked() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isAccountNonLocked'");
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isCredentialsNonExpired'");
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    @Override
-    public boolean isEnabled() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEnabled'");
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    // Getters and setters, UserDetails methods
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Integer getActive() {
+		return active;
+	}
+
+	public void setActive(Integer active) {
+		this.active = active;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Date getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+	
 }

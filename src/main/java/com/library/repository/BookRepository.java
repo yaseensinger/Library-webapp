@@ -1,8 +1,17 @@
 package com.library.repository;
 
-import com.library.model.Book;
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.library.model.Book;
+import com.library.model.Category;
+
+@Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
-    // You can add custom query methods if needed
+	public Book findByTag(String tag);
+	public List<Book> findByCategory(Category category);
+	public List<Book> findByCategoryAndStatus(Category category, Integer status);
+	public Long countByStatus(Integer status);
 }

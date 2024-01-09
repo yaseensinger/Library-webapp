@@ -28,4 +28,3 @@ library Management System designed to efficiently manage library operations, inc
 ### Installation
 
 1. Clone the repository: `git clone https://github.com/your-username/spark-lms.git`
-2. [Any other installation steps]
